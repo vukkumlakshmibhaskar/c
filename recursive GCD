@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+// Function to calculate GCD recursively
+int gcd_recursive(int n, int m) {
+    if (m == 0)
+        return n;
+    else
+        return gcd_recursive(m, n % m);
+}
+
+int main() {
+    int n, m;
+
+    printf("Enter two non-negative integers: ");
+    scanf("%d %d", &n, &m);
+
+    if (n < 0 || m < 0) {
+        printf("Inputs should be non-negative integers.\n");
+        return 1;
+    }
+
+    printf("GCD of %d and %d = %d\n", n, m, gcd_recursive(n, m));
+
+    return 0;
+}
