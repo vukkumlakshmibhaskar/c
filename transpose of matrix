@@ -1,0 +1,50 @@
+#include <stdio.h>
+
+#define ROWS 3
+#define COLS 3
+
+// Function to find transpose of matrix
+void transpose(int matrix[ROWS][COLS], int result[COLS][ROWS]) {
+    int i, j;
+
+    for (i = 0; i < ROWS; i++) {
+        for (j = 0; j < COLS; j++) {
+            result[j][i] = matrix[i][j];
+        }
+    }
+}
+
+// Function to display matrix
+void displayMatrix(int matrix[ROWS][COLS]) {
+    int i, j;
+
+    for (i = 0; i < ROWS; i++) {
+        for (j = 0; j < COLS; j++) {
+            printf("%d ", matrix[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    int matrix[ROWS][COLS];
+    int result[COLS][ROWS];
+    int i, j;
+
+    printf("Enter elements of %dx%d matrix:\n", ROWS, COLS);
+    for (i = 0; i < ROWS; i++) {
+        for (j = 0; j < COLS; j++) {
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+
+    printf("\nMatrix:\n");
+    displayMatrix(matrix);
+
+    transpose(matrix, result);
+
+    printf("\nTranspose of the matrix:\n");
+    displayMatrix(result);
+
+    return 0;
+}
